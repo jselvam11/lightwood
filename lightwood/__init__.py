@@ -17,9 +17,9 @@ from lightwood.helpers.device import get_devices
 COLUMN_DATA_TYPES = CONST.COLUMN_DATA_TYPES
 
 # fix random seed for reproducibility
-seed = 42
-np.random.seed(seed)
-torch.manual_seed(seed)
+#seed = 42
+#np.random.seed(seed)
+#torch.manual_seed(seed)
 if 'cuda' in str(get_devices()[0]):
     torch.backends.cudnn.deterministic = True
     torch.backends.cudnn.benchmark = False

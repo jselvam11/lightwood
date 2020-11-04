@@ -94,7 +94,7 @@ class DataSource(Dataset):
                 dropout = col['dropout']
 
             self.dropout_dict[col['name']] = dropout
-        
+
         if initialize_transformer:
             self.transformer = Transformer(self.input_feature_names, self.output_feature_names)
         else:
@@ -104,7 +104,7 @@ class DataSource(Dataset):
             self.encoders = self._prepare_encoders()
         else:
             self.encoders = None
-        
+
         self._clear_cache()
 
     def extend(self, df):
@@ -146,7 +146,7 @@ class DataSource(Dataset):
 
         :return: DataSource
         """
-        np.random.seed(int(round(percentage * 100000)))
+        #np.random.seed(int(round(percentage * 100000)))
 
         msk = np.random.rand(len(self.data_frame)) < (1 - percentage)
 
@@ -338,7 +338,7 @@ class DataSource(Dataset):
         with all available data for that column.
         """
         encoders = {}
-    
+
         input_encoder_training_data = {'targets': [], 'previous': []}
 
         for config in self.config['output_features']:
@@ -471,6 +471,6 @@ class DataSource(Dataset):
 
     def train(self):
         self.training = True
-    
+
     def eval(self):
         self.training = False
